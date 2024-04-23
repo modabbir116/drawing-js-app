@@ -1,0 +1,202 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ol,ul{
+    list-style-type: none;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    line-height: 0.8;
+}
+
+/*============ drawing app part start here  ==================*/
+.drawing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: teal;
+}
+.drawing_main{
+    display: flex;
+    width: 100%;
+    max-width: 1050px;
+    gap: 15px;
+    padding: 15px;
+}
+.drawing_tools{
+    background-color: #fff;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width: 210px;
+    padding: 20px 25px;
+}
+
+.tools_main{
+    margin-bottom: 20px;
+}
+.tools_main .option{
+    margin: 10px 0;
+}
+.option_item{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.option_item .item_icon{
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+.option_item:is(:hover, .active) img{
+    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+    -webkit-filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+.option_item:is(:hover, .active) :where(span, label){
+    color: teal;
+}
+.option_item .item_icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.option_item #file-color{
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+}
+.option_item #file-color:checked ~ label{
+    color: teal;
+}
+.option_item :where(span, label){
+    text-transform: capitalize;
+    color: #2c2c2c;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+}
+.option_item #size_slider{
+   width: 100%;
+   height: 5px;
+   margin-top: 10px;
+}
+.colors .option{
+    display: flex;
+    justify-content: space-between;
+}
+.colors .option_item{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-top: 5px;
+    position: relative;
+}
+.colors .option_item.selected::before{
+    position: absolute;
+    content: '';
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    background: inherit;
+    border-radius:inherit ;
+    border: 2px solid #fff;
+    width: 12px;
+    height: 12px;
+    -webkit-border-radius:inherit ;
+    -moz-border-radius:inherit ;
+    -ms-border-radius:inherit ;
+    -o-border-radius:inherit ;
+}
+.colors .option_item:nth-child(1){
+    background: #fff;
+    border: 2px solid #ddd;
+}
+.colors .option_item:nth-child(2){
+    background: red;
+}
+.colors .option_item:nth-child(3){
+    background: #000;
+}
+.colors .option_item:nth-child(4){
+    background: teal;
+}
+.colors .option_item:nth-child(5){
+    background: #07cde3;
+}
+.colors .option_item.selected::before{
+    border-color: #ccc;
+}
+.button_main button{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 11px 0;
+    margin: 6px 0;
+    border-radius: 8px;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 500;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    cursor: pointer;
+} 
+.button_main .clear_canvas{
+    color: #6c757d;
+    border: 1px solid #6c757d;
+    background: transparent;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+.button_main .clear_canvas:hover{
+    background-color: teal;
+    color: #fff;
+    border: 1px solid teal;
+}
+.button_main .save_canvas{
+    color: #fff;
+    background: teal;
+}
+.option_item #color_picker{
+    opacity: 0;
+    cursor: pointer;
+}
+.drawing_board{
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.drawing_board canvas{
+    width: 100%;
+    height: 100%;
+}
+
+/*============ drawing app part end here  ==================*/
